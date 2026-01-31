@@ -1,0 +1,23 @@
+```sql
+CREATE DATABASE student_db;
+USE student_db;
+
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(100),
+    department VARCHAR(50),
+    year INT
+);
+
+CREATE TABLE attendance (
+    student_id INT,
+    attendance_percentage FLOAT,
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
+);
+
+CREATE TABLE marks (
+    student_id INT,
+    subject VARCHAR(50),
+    marks INT,
+    FOREIGN KEY (student_id) REFERENCES students(student_id)
+);
